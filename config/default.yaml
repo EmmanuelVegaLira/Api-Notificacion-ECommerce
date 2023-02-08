@@ -1,0 +1,22 @@
+api:
+  identifier: Api-backend
+  port: '5001'
+
+logger:
+  options:
+    level: trace
+
+mongodb:
+  url: 'mongodb+srv://db-mongo-tor-rtp-ca85be19.mongo.ondigitalocean.com'
+  database: 'demo'
+  scheme: mongodb
+  hostname: '127.0.0.1'
+  port: '27017'
+  timeout: '5000'
+  options:
+    useUnifiedTopology: true
+    useNewUrlParser: true
+    authMechanism: "SCRAM-SHA-1"
+    user: "anydev"
+    pass: "E7289AJ6O4LB05ZD"
+    authSource: "admin"
