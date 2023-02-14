@@ -4,7 +4,7 @@ import express from 'express'
 //import routes from './routes'
 
 
-const server = Server.instance
+const server = Server.getInstance()
 
 server.app.enable('trust proxy')
 

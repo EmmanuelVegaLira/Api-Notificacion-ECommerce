@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  }, 
   "keywords": [],
   "author": "Emmanuel Vega Lira",
   "license": "ISC",
@@ -14,7 +14,8 @@
     "express": "^4.18.2",
     "mongoose": "^6.9.1",
     "nodemon": "^2.0.20",
-    "pino": "^8.9.0"
+    "pino": "^8.9.0",
+    "socket.io": "^4.6.0"
   },
   "devDependencies": {
     "@types/config": "^3.3.0",
