@@ -41,10 +41,27 @@ export default class NotificationController{
         })
     }
     //Update
-    public updateNotificacion(notificacion_type:string):Promise<IResponse>{
+    public updateNotificacion(notificacion:INotification):Promise<IResponse>{
         return new Promise((resolve,reject)=>{
-            
-        })
+            Notificacion.findOneAndUpdate({notification_type:notificacion.notification_type},{
+                message:notificacion.message,
+                reading_users:notificacion.reading_users,
+                store_id:notificacion.store_id,
+                offer_id:notificacion.offer_id
+            },{
+                returnOriginal:false
+            },(err:any,notificationDB:any)=>{
+
+                if ( err ) return reject({ ok: false, message: 'Fallo en base de datos', response: err, code: 500 })
+
+                if ( !notificationDB ) {
+                    return reject({ ok: false, message: 'No se encontro el id', response: null, code: 404 })
+                }
+
+                return resolve({ ok: true, message: 'Registro actualizado', response: notificationDB, code: 200 })
+            })
+        }) 
+        
     }
     
 }
