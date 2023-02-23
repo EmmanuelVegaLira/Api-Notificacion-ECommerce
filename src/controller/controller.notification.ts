@@ -21,7 +21,7 @@ export default class NotificationController{
             Notificacion.deleteOne({offer_id:offer_id},(err:any,notificationDB:any)=>{
                 if ( err ) return reject({ ok: false, message: 'Fallo en base de datos', response: err, code: 500 })
 
-                if ( !notificationDB ) {
+                if ( notificationDB.deletedCount === 0 ) {
                     return reject({ ok: false, message: 'No se encontro el registro para ser eliminado', response: null, code: 404 })
                 }
                 return resolve({ ok: true, message: 'Notificacion eliminada!', response: notificationDB, code: 200 })
@@ -31,7 +31,7 @@ export default class NotificationController{
     //Get
     public getNotificacion(offer_id:String):Promise<IResponse>{
         return new Promise((resolve, reject)=>{
-            Notificacion.find({offer_id:offer_id},(err:any,notificationDB:any)=>{
+            Notificacion.findOne({offer_id:offer_id},(err:any,notificationDB:any)=>{
                 if (err) return reject({ok: false, message: 'Fallo en base de datos', response: err, code: 500})
             if (!notificationDB){
                 return reject({ok: false, message: 'No se encontro el registro para ser mostrado', response: null, code: 404})
