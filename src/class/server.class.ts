@@ -12,7 +12,7 @@ export default class Server {
     private mongodb: MongoConn
     public app: express.Application
 
-   private constructor() {
+    constructor() {
         this.port = config.get('api.port')
         this.app = express()
         this.httpServer = new http.Server(this.app)
@@ -20,12 +20,8 @@ export default class Server {
         
     }
 
-    public static getInstance() {
-        if(!Server._instance){
-            Server._instance = new Server;
-        }
-        //return this._instance || ( this._instance = new this() )
-        return Server._instance;
+    public static get instance() {
+        return this._instance || ( this._instance = new this() )
     }
 
     async start() {

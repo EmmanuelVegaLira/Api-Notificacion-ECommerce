@@ -19,7 +19,35 @@ public static getInstance(){
         return a+b
     }
 }
+const myclass1 = Singleton.getInstance();
 const MyClass = Singleton.getInstance();
+
+
 MyClass.myMethod()
+
+myclass1.suma(5,1)
+
+
 const MyClass1 = Singleton.getInstance();
 MyClass.suma(1,2)
+
+
+class Pokemon{
+
+    pokemonFuego(){
+    
+
+    }
+    pokemonAgua(){
+    console.log("zzzzz");
+
+    }
+    pokemonTierra(){
+        let pasos
+        if(pasos==100){
+            console.log("hoy caminaste mucho");
+            
+        }
+    }
+}
+

@@ -16,9 +16,9 @@ export default class NotificationController{
         })
     }
     //Delete
-    public deleteNotification(notification_type:String): Promise<IResponse>{
+    public deleteNotification(offer_id:String): Promise<IResponse>{
         return new Promise((resolve,reject)=>{
-            Notificacion.deleteOne({notification_type:notification_type},(err:any,notificationDB:any)=>{
+            Notificacion.deleteOne({offer_id:offer_id},(err:any,notificationDB:any)=>{
                 if ( err ) return reject({ ok: false, message: 'Fallo en base de datos', response: err, code: 500 })
 
                 if ( !notificationDB ) {
@@ -29,14 +29,14 @@ export default class NotificationController{
         })
     }
     //Get
-    public getNotificacion(notification_type:string):Promise<IResponse>{
+    public getNotificacion(offer_id:String):Promise<IResponse>{
         return new Promise((resolve, reject)=>{
-            Notificacion.findOne({notificacion_type:notification_type},(err:any,notificationDB:any)=>{
+            Notificacion.find({offer_id:offer_id},(err:any,notificationDB:any)=>{
                 if (err) return reject({ok: false, message: 'Fallo en base de datos', response: err, code: 500})
             if (!notificationDB){
                 return reject({ok: false, message: 'No se encontro el registro para ser mostrado', response: null, code: 404})
             }
-            return resolve({ok: true, message: 'Notificacion econtrada!', response: notificationDB, code: 200})
+            return resolve({ok: true, message: 'Notificacion encontrada!', response: notificationDB, code: 200})
             })
         })
     }
@@ -46,8 +46,7 @@ export default class NotificationController{
             Notificacion.findOneAndUpdate({notification_type:notificacion.notification_type},{
                 message:notificacion.message,
                 reading_users:notificacion.reading_users,
-                store_id:notificacion.store_id,
-                offer_id:notificacion.offer_id
+                
             },{
                 returnOriginal:false
             },(err:any,notificationDB:any)=>{

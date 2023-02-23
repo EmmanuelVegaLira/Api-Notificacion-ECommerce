@@ -12,18 +12,18 @@ routes.post('/create', async( req: Request, res: Response ) => {
     const notificationRequest = body
 
     try {
-        const response = await notification .createNotificacion(notificationRequest)
+        const response = await notification.createNotificacion(notificationRequest)
         return res.status(response.code).json(response)
     } catch( err: any ) {
         return res.status(err.code ? err.code : 500).json(err)
     }
 })
-//Ruta a la busqueda de un contacto por num de telefono
-routes.get('/search/:notification_type', async( req: Request, res: Response ) => {
-    const notification_type = req.params.notificacion_type
+
+routes.get('/search/:offer_id', async( req: Request, res: Response ) => {
+    const offer = req.params.offer_id
 
     try {
-        const response = await notification.getNotificacion(String(notification_type))
+        const response = await notification.getNotificacion(String(offer))
         return res.status(response.code).json(response)
     } catch( err: any ) {
         return res.status(err.code ? err.code : 500).json(err)
@@ -33,10 +33,10 @@ routes.get('/search/:notification_type', async( req: Request, res: Response ) =>
 
 //--------------------------------------------------------------
 
-routes.delete('/delete/:notification_type',async(req:Request,res:Response)=>{
-    const notificacion_type = req.params.notificacion_type
+routes.delete('/delete/:offer_id',async(req:Request,res:Response)=>{
+    const offer = req.params.offer_id
     try{
-        const response = await notification.deleteNotification(String(notificacion_type))
+        const response = await notification.deleteNotification(String(offer))
         return res.status(response.code).json(response)
     }catch( err: any){
         return res.status(err.code ? err.code: 500).json(err)
