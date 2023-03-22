@@ -3,6 +3,7 @@ import { Router, Request, Response } from "express";
 import logger from "../lib/logger";
 import NotificationController from './controller/controller.notification';
 import INotification from "./interfaces/notification.interface";
+import { checkToken } from "./middlewares/check-token";
 
 const routes = Router();
 const notification = new NotificationController
@@ -19,7 +20,7 @@ routes.post('/create', async( req: Request, res: Response ) => {
     }
 })
 
-routes.get('/search/:offer_id', async( req: Request, res: Response ) => {
+routes.get('/search/:offer_id',async( req: Request, res: Response ) => {
     const offer = req.params.offer_id
 
     try {
