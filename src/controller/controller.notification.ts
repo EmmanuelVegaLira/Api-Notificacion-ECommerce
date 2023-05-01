@@ -1,4 +1,3 @@
-
 import INotification from '../interfaces/notification.interface';
 import IResponse from '../interfaces/response.interface';
 import Notificacion from '../models/model.notification';

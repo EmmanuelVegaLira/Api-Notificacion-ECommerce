@@ -6,7 +6,7 @@ const OfferNotificationSchema: Schema = new Schema({
   reading_users: { type: Array, required: true},
   offer_id: { type: String, required: true,unique: true},
   message: { type: String, required: true},
-  date_create: { type: Date, default: Date.now}
+  date_create: { type: Date, default: Date.now()}
 }, { collection: 'notificacion'});
 
 export default mongoose.model('Notificacion', OfferNotificationSchema);
