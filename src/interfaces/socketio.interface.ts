@@ -1,3 +1,5 @@
+import INotification from "./notification.interface";
+
 export interface IServerToClient{
-    hello: () => void
+    modelNotification: INotification
 }

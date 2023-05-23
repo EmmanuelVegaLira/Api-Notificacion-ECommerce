@@ -8,7 +8,7 @@ logger:
 
 mongodb:
   url: 'mongodb://127.0.0.1:27017'
-  database: 'Api-Notification'
+  database: 'Api-User'
   scheme: mongodb
   hostname: '127.0.0.1'
   port: '27017'
@@ -23,6 +23,7 @@ crypto:
   auth_algorithm: 'aes256'
   auth_inputEncoding: 'utf8'
   auth_outputEncoding: 'hex'
+
 jwt:
   accessTokenSecret: '0d7c5c5f-768c-4d98-8900-13aadaa21937'
   refreshTokenSecret: '1a7v8c0l-391k-1f82-4492-tha3taa11334'
